@@ -6,10 +6,6 @@ gem "rails", "~> 8.1.3", ">= 8.1.3.1"
 gem "propshaft"
 # Use sqlite3 as database
 gem "sqlite3", ">= 2.1"
-
-group :development do
-  gem "mysql2", "~> 0.5"
-end
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
