@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" fill="none">
+  <defs>
+    <linearGradient id="brandBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="emeraldGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="50%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+    <radialGradient id="haloLight" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="650" fill="url(#brandBg)" />
+  <circle cx="500" cy="300" r="300" fill="url(#haloLight)" />
+
+  <!-- Isometric Grid Marks -->
+  <g opacity="0.15" stroke="#34D399" stroke-width="1">
+    <circle cx="500" cy="300" r="220" fill="none" stroke-dasharray="4,8" />
+    <circle cx="500" cy="300" r="140" fill="none" stroke-dasharray="2,6" />
+    <line x1="200" y1="300" x2="800" y2="300" />
+    <line x1="500" y1="50" x2="500" y2="550" />
+  </g>
+
+  <!-- 3D Geometric Brand Prism -->
+  <g transform="translate(500, 290)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="170" rx="140" ry="26" fill="#000000" opacity="0.45" />
+
+    <!-- Hexagonal / Isometric Prism Face 1 -->
+    <path d="M 0 -130 L 115 -65 L 115 65 L 0 130 Z" fill="#059669" opacity="0.9" />
+    <!-- Face 2 -->
+    <path d="M 0 -130 L -115 -65 L -115 65 L 0 130 Z" fill="#10B981" />
+    <!-- Top Face -->
+    <path d="M 0 -130 L 115 -65 L 0 0 L -115 -65 Z" fill="#34D399" />
+    
+    <!-- Stylized Golden Core Cutout -->
+    <path d="M 0 -70 L 60 -35 L 60 35 L 0 70 L -60 35 L -60 -35 Z" fill="#FBBF24" opacity="0.95" />
+    <path d="M 0 -70 L 60 -35 L 0 0 L -60 -35 Z" fill="#FDE68A" />
+  </g>
+
+  <!-- Brand Identity Specs Floating Badges -->
+  <rect x="140" y="470" width="220" height="60" rx="12" fill="#1E293B" stroke="#334155" />
+  <circle cx="165" cy="500" r="10" fill="#10B981" />
+  <text x="185" y="497" fill="#E2E8F0" font-size="12" font-weight="700" font-family="sans-serif">PANTONE 354 C</text>
+  <text x="185" y="513" fill="#94A3B8" font-size="11" font-family="sans-serif">#10B981 Primary Brand</text>
+
+  <rect x="640" y="470" width="220" height="60" rx="12" fill="#1E293B" stroke="#334155" />
+  <circle cx="665" cy="500" r="10" fill="#FBBF24" />
+  <text x="685" y="497" fill="#E2E8F0" font-size="12" font-weight="700" font-family="sans-serif">VECTOR PRECISION</text>
+  <text x="685" y="513" fill="#94A3B8" font-size="11" font-family="sans-serif">100% Scalable SVG</text>
+</svg>

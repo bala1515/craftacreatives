@@ -9,11 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        agencyDark: "#0B0F19",
-        agencyCard: "#131B2E",
-        neonCyan: "#00F0FF",
-        neonPurple: "#7000FF",
-        neonGreen: "#00FF66",
+        lightCanvas: "#F5F5F7",
+        lightSurface: "#FFFFFF",
+        lightCard: "rgba(255, 255, 255, 0.82)",
+        lightText: "#1D1D1F",
+        lightMuted: "#6E6E73",
+        lightBorder: "rgba(0, 0, 0, 0.08)",
+        appleBlue: "#0071E3",
+        studioAmber: "#F59E0B",
+        studioIndigo: "#4F46E5",
       },
     },
   },

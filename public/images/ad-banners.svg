@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" fill="none">
+  <defs>
+    <linearGradient id="bannerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1B2E" />
+      <stop offset="100%" stop-color="#020813" />
+    </linearGradient>
+    <linearGradient id="popNeon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="50%" stop-color="#FF46A2" />
+      <stop offset="100%" stop-color="#FFFF00" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="650" fill="url(#bannerBg)" />
+
+  <!-- Pop Art Comic Halftone Dots Background -->
+  <g fill="#22D3EE" opacity="0.08">
+    <circle cx="100" cy="100" r="16" />
+    <circle cx="200" cy="150" r="24" />
+    <circle cx="850" cy="120" r="32" />
+    <circle cx="900" cy="450" r="40" />
+    <circle cx="150" cy="500" r="28" />
+  </g>
+
+  <!-- Big Marketing Banner Card -->
+  <g transform="translate(100, 100)">
+    <rect width="800" height="450" rx="24" fill="#112240" stroke="#22D3EE" stroke-width="2" />
+    
+    <!-- Bold CTA Ribbon -->
+    <rect x="-10" y="40" width="260" height="50" fill="#FF46A2" transform="rotate(-5)" />
+    <text x="120" y="72" fill="#FFFFFF" font-family="Impact, sans-serif" font-size="24" text-anchor="middle" transform="rotate(-5)">HIGH CTR BOOST +450%</text>
+
+    <!-- Headline -->
+    <text x="70" y="190" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="46" font-weight="900">ENGINEERED FOR</text>
+    <text x="70" y="250" fill="#FFFF00" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="52" font-weight="900">MAX CONVERSIONS</text>
+    
+    <text x="70" y="305" fill="#94A3B8" font-family="sans-serif" font-size="16">Targeted Google Display, Meta Carousel &amp; High-Frequency Ads</text>
+
+    <!-- Floating Graphic Elements -->
+    <circle cx="620" cy="220" r="120" fill="url(#popNeon)" opacity="0.85" />
+    <polygon points="620,130 650,210 730,220 665,270 685,350 620,305 555,350 575,270 510,220 590,210" fill="#FFFFFF" />
+
+    <!-- Button -->
+    <rect x="70" y="340" width="220" height="55" rx="14" fill="#00F0FF" />
+    <text x="180" y="375" fill="#0A192F" font-family="sans-serif" font-size="16" font-weight="800" text-anchor="middle">LAUNCH CAMPAIGN →</text>
+  </g>
+</svg>

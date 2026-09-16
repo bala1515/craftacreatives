@@ -1,46 +1,87 @@
 import React, { useState, useEffect } from 'react';
 import NavbarLogo from './NavbarLogo';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function Navbar({ showLogo = true }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 30);
+
+      // Simple active section detection
+      const sections = ['hero', 'services', 'contact'];
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { id: 'hero', label: 'Home' },
+    { id: 'services', label: 'Services' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-gray-200 py-3 shadow-sm' : 'bg-transparent py-5'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled 
+        ? 'py-3.5 bg-white/80 backdrop-blur-2xl border-b border-black/5 shadow-[0_8px_30px_rgba(0,0,0,0.06)]' 
+        : 'py-6 bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Exact Navbar Logo Container */}
-        <div id="navbar-logo-container" className="h-10 flex items-center">
+        {/* Navbar Logo Container */}
+        <div id="navbar-logo-container" className="h-10 flex items-center gap-4">
           {showLogo && <NavbarLogo />}
+          
+          {/* Studio Availability Badge (Solid Neon Yellow) */}
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFF00] border border-black/15 text-[10px] font-black text-black shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#EE4B2B] animate-pulse" />
+            <span className="tracking-wide">Studio Booking Open Q3/Q4</span>
+          </div>
         </div>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
-          <a href="#hero" className="hover:text-gray-900 transition-colors">Home</a>
-          <a href="#services" className="hover:text-gray-900 transition-colors">Services</a>
-          <a href="#portfolio" className="hover:text-gray-900 transition-colors">Portfolio</a>
-          <a href="#quote" className="hover:text-gray-900 transition-colors">Estimate Quote</a>
-          <a href="#contact" className="hover:text-gray-900 transition-colors">Contact Us</a>
+        {/* Desktop Floating Pill Navigation Links */}
+        <div className="hidden md:flex items-center p-1.5 rounded-full bg-white/90 backdrop-blur-xl border border-white/95 shadow-[0_4px_20px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,1)]">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className={`relative px-4 py-1.5 rounded-full text-xs font-black tracking-wide transition-all duration-300 ${
+                  isActive 
+                    ? 'text-black bg-[#00F0FF] font-black shadow-sm scale-105' 
+                    : 'text-[#6E6E73] hover:text-black hover:bg-black/5'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
 
-        {/* Call To Action Button */}
+        {/* Call To Action Button (Solid Pop Art Orange-Red) */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="#quote"
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
+            href="#contact"
+            className="group relative inline-flex items-center gap-2 bg-[#EE4B2B] hover:bg-[#d43d1f] text-white text-xs font-black tracking-wider uppercase px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(238,75,43,0.35)] transition-all duration-300 hover:scale-105 active:scale-95"
           >
-            Get a Quote <ArrowRight className="w-4 h-4" />
+            <span>Start Project</span>
+            <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
@@ -48,21 +89,33 @@ export default function Navbar({ showLogo = true }) {
         <div className="md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-gray-700 hover:text-gray-900 p-2"
+            className="text-[#1D1D1F] hover:text-[#EE4B2B] p-2 rounded-xl bg-white/80 border border-black/5 shadow-sm"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200 px-4 pt-4 pb-6 space-y-3 shadow-lg">
-          <a href="#hero" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 py-2 font-semibold">Home</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 py-2 font-semibold">Services</a>
-          <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 py-2 font-semibold">Portfolio</a>
-          <a href="#quote" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 py-2 font-semibold">Estimate Quote</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-blue-600 py-2 font-semibold">Contact Us</a>
+        <div className="md:hidden bg-white/95 backdrop-blur-2xl border-b border-black/5 px-6 pt-4 pb-6 space-y-3 shadow-2xl">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2.5 px-3 rounded-xl text-sm font-bold text-[#1D1D1F] hover:text-[#EE4B2B] hover:bg-black/5 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-center mt-4 bg-[#EE4B2B] hover:bg-[#d43d1f] text-white text-xs font-black uppercase py-3.5 rounded-xl shadow-[0_4px_14px_rgba(238,75,43,0.35)]"
+          >
+            Start Project →
+          </a>
         </div>
       )}
     </nav>

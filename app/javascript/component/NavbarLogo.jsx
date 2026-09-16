@@ -6,15 +6,15 @@ export default function NavbarLogo({ isIntro = false }) {
     <motion.a
       href="#"
       layoutId="unified-company-logo"
-      className="flex items-center gap-2.5 group select-none cursor-pointer"
+      className="flex items-center gap-3 group select-none cursor-pointer"
       transition={{ duration: 0.85, ease: [0.65, 0, 0.35, 1] }}
     >
-      {/* Logo Icon Box */}
+      {/* Pop Art Solid Color Logo Icon Box */}
       <motion.div 
         layoutId="logo-icon-box"
-        className="w-10 h-10 rounded-xl bg-gray-900 p-0.5 shadow-md group-hover:scale-105 transition-transform duration-300 flex-shrink-0"
+        className="w-10 h-10 rounded-xl bg-[#00F0FF] p-0.5 shadow-sm group-hover:scale-105 transition-all duration-300 flex-shrink-0"
       >
-        <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center font-black text-lg text-gray-900">
+        <div className="w-full h-full bg-[#1D1D1F] rounded-[10px] flex items-center justify-center font-black text-sm tracking-wider text-[#00F0FF]">
           CC
         </div>
       </motion.div>
@@ -22,9 +22,9 @@ export default function NavbarLogo({ isIntro = false }) {
       {/* Logo Text */}
       <motion.span 
         layoutId="logo-text"
-        className="text-xl font-bold tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors whitespace-nowrap"
+        className="text-lg sm:text-xl font-black tracking-tight text-[#1D1D1F] transition-colors whitespace-nowrap"
       >
-        Crafta <span className="text-blue-600">Creatives</span>
+        Crafta <span className="text-[#FF46A2] font-black">Creatives</span>
       </motion.span>
     </motion.a>
   );

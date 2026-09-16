@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" fill="none">
+  <defs>
+    <linearGradient id="shootBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="50%" stop-color="#27272A" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="650" fill="url(#shootBg)" />
+  <rect width="1000" height="650" fill="url(#spotlight)" />
+
+  <!-- Viewfinder Crosshairs & HUD -->
+  <g stroke="#FBBF24" stroke-width="1.5" opacity="0.6">
+    <!-- Corners -->
+    <path d="M 80 120 L 80 80 L 120 80" fill="none" />
+    <path d="M 920 120 L 920 80 L 880 80" fill="none" />
+    <path d="M 80 530 L 80 570 L 120 570" fill="none" />
+    <path d="M 920 530 L 920 570 L 880 570" fill="none" />
+    <!-- Center Target -->
+    <circle cx="500" cy="325" r="14" fill="none" />
+    <line x1="470" y1="325" x2="490" y2="325" />
+    <line x1="510" y1="325" x2="530" y2="325" />
+    <line x1="500" y1="295" x2="500" y2="315" />
+    <line x1="500" y1="335" x2="500" y2="355" />
+  </g>
+
+  <!-- Cinema Lens Rings -->
+  <g transform="translate(500, 325)">
+    <circle cx="0" cy="0" r="180" fill="#18181B" stroke="#3F3F46" stroke-width="6" />
+    <circle cx="0" cy="0" r="150" fill="#27272A" stroke="url(#goldRing)" stroke-width="4" />
+    <circle cx="0" cy="0" r="120" fill="#09090B" stroke="#52525B" stroke-width="3" />
+    
+    <!-- Lens Elements Reflection -->
+    <ellipse cx="-40" cy="-40" rx="60" ry="25" fill="#38BDF8" opacity="0.25" transform="rotate(-30, -40, -40)" />
+    <ellipse cx="35" cy="35" rx="45" ry="18" fill="#F43F5E" opacity="0.2" transform="rotate(-30, 35, 35)" />
+    <circle cx="0" cy="0" r="70" fill="#000000" />
+    
+    <!-- Aperture Blades -->
+    <polygon points="0,-60 45,-25 35,35 -20,55 -55,10" fill="#1C1917" stroke="#78716C" stroke-width="1.5" />
+  </g>
+
+  <!-- HUD Overlay Info -->
+  <text x="120" y="110" fill="#FDE68A" font-family="monospace" font-size="14" font-weight="bold">● REC [4K HDR 60FPS]</text>
+  <text x="880" y="110" fill="#E4E4E7" font-family="monospace" font-size="14" text-anchor="end">ISO 100 • 1/250s • f/1.8</text>
+  <text x="500" y="580" fill="#A1A1AA" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="2">COMMERCIAL STUDIO SETUP • DUAL KEY LIGHT</text>
+</svg>

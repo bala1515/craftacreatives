@@ -1,17 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useVelocity } from 'framer-motion';
-import { ExternalLink, Play, Image as ImageIcon, X, Sparkles, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { ExternalLink, Play, Image as ImageIcon, X, Sparkles, ArrowRight, Layers } from 'lucide-react';
 
 const PORTFOLIO_ITEMS = [
   {
     id: 1,
-    title: 'SaaS Cloud Dashboard',
+    title: 'SaaS Cloud Telemetry Platform',
     category: 'webdev',
     categoryLabel: 'Web Engineering',
-    type: 'Web Application',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&auto=format&fit=crop&q=80',
+    type: 'React 19 & Rails 8 App',
+    image: '/images/telemetry.svg',
     description: 'Real-time telemetry and cloud analytics engine engineered for enterprise SaaS platforms.',
-    accentColor: '#0066CC',
+    accentColor: '#3B82F6',
     tags: ['React 19', 'Rails 8', 'Tailwind', 'Recharts']
   },
   {
@@ -20,9 +20,9 @@ const PORTFOLIO_ITEMS = [
     category: 'logo',
     categoryLabel: 'Brand Identity',
     type: 'Logo & Identity Suite',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1000&auto=format&fit=crop&q=80',
+    image: '/images/branding.svg',
     description: 'Modern vector logo design, custom typography suite, and complete corporate identity guide.',
-    accentColor: '#10B981',
+    accentColor: '#34D399',
     tags: ['Vector SVG', 'Brand Guide', 'Figma', 'Typography']
   },
   {
@@ -30,32 +30,32 @@ const PORTFOLIO_ITEMS = [
     title: '4K Commercial Product Shoot',
     category: 'shoot',
     categoryLabel: 'Commercial Media',
-    type: 'Product Photography',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1000&auto=format&fit=crop&q=80',
+    type: 'Studio Photography',
+    image: '/images/product-shoot.svg',
     description: 'Studio lighting commercial photography with multi-angle e-commerce capture & 4K HDR retouching.',
-    accentColor: '#F59E0B',
+    accentColor: '#FBBF24',
     tags: ['4K Camera', 'Studio Lighting', 'HDR Retouching']
   },
   {
     id: 4,
-    title: 'Brand Promo Video Edit',
+    title: 'Brand Promo Cinema Video Edit',
     category: 'video',
     categoryLabel: 'Post-Production',
     type: 'Video Reel & FX',
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1000&auto=format&fit=crop&q=80',
+    image: '/images/cinema-video.svg',
     description: 'High-energy promo reel, kinetic typography, cinematic sound design, and 4K color grading.',
     accentColor: '#F43F5E',
     tags: ['Premiere Pro', 'After Effects', 'Kinetic FX']
   },
   {
     id: 5,
-    title: 'Social Media Ad Campaign Banners',
+    title: 'High-CTR Ad Campaign Banners',
     category: 'banner',
     categoryLabel: 'Marketing Graphics',
-    type: 'Banner Design',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1000&auto=format&fit=crop&q=80',
+    type: 'Banner & Ad Design',
+    image: '/images/ad-banners.svg',
     description: 'Conversion-focused digital ad banners and web sliders designed for high CTR campaigns.',
-    accentColor: '#06B6D4',
+    accentColor: '#22D3EE',
     tags: ['Meta Ads', 'Google Banners', 'High CTR']
   },
   {
@@ -64,9 +64,9 @@ const PORTFOLIO_ITEMS = [
     category: 'webdev',
     categoryLabel: 'Web Engineering',
     type: 'E-Commerce Platform',
-    image: 'https://images.unsplash.com/photo-1556742049-0a67daf40955?w=1000&auto=format&fit=crop&q=80',
+    image: '/images/ecommerce.svg',
     description: 'Ultra-fast headless e-commerce store with animated product cards, cart & instant checkout.',
-    accentColor: '#5E5CE6',
+    accentColor: '#818CF8',
     tags: ['React 19', 'Stripe API', 'PostgreSQL', 'Tailwind']
   }
 ];
@@ -80,8 +80,7 @@ const CATEGORIES = [
   { id: 'banner', label: 'Banner & Ads' }
 ];
 
-// Interactive 3D Tilt & Velocity Skew Card
-function KineticVelocityCard({ item, index, scrollVelocitySkew, isDesktop, onClick }) {
+function Interactive3DTiltCard({ item, index, isDesktop, onClick }) {
   const cardRef = useRef(null);
 
   const x = useMotionValue(0);
@@ -90,11 +89,8 @@ function KineticVelocityCard({ item, index, scrollVelocitySkew, isDesktop, onCli
   const mouseX = useSpring(x, { stiffness: 300, damping: 22 });
   const mouseY = useSpring(y, { stiffness: 300, damping: 22 });
 
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], [10, -10]);
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-10, 10]);
-
-  const spotlightX = useTransform(mouseX, [-0.5, 0.5], ['0%', '100%']);
-  const spotlightY = useTransform(mouseY, [-0.5, 0.5], ['0%', '100%']);
+  const rotateX = useTransform(mouseY, [-0.5, 0.5], [12, -12]);
+  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-12, 12]);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current || !isDesktop) return;
@@ -111,11 +107,10 @@ function KineticVelocityCard({ item, index, scrollVelocitySkew, isDesktop, onCli
   return (
     <motion.div
       layout
-      style={{ skewY: isDesktop ? scrollVelocitySkew : 0 }}
-      initial={{ opacity: 0, y: 50, rotateX: isDesktop ? 18 : 0, scale: 0.94 }}
-      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: false, margin: "-30px" }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.45, delay: (index % 3) * 0.1, ease: 'easeOut' }}
       className="perspective-1000"
     >
       <motion.div
@@ -128,65 +123,51 @@ function KineticVelocityCard({ item, index, scrollVelocitySkew, isDesktop, onCli
           rotateY: isDesktop ? rotateY : 0,
           transformStyle: 'preserve-3d'
         }}
-        className="group relative bg-white border border-gray-200/90 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer transition-all duration-300 transform-gpu"
+        className="group relative bg-white/90 border border-white/95 hover:border-blue-500/40 rounded-3xl overflow-hidden shadow-[0_12px_36px_-8px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,1)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] cursor-pointer transition-all duration-300 transform-gpu"
       >
-        {/* Media Showcase Container */}
-        <div className="relative h-56 sm:h-64 lg:h-72 overflow-hidden bg-gray-950">
+        <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-100">
           <img
             src={item.image}
             alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+            className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-90 group-hover:opacity-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
-          {/* Liquid Lens Spotlight Glare */}
-          {isDesktop && (
-            <motion.div
-              style={{
-                background: `radial-gradient(400px circle at ${spotlightX.get()} ${spotlightY.get()}, rgba(255,255,255,0.25), transparent 80%)`
-              }}
-              className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            />
-          )}
-
-          {/* Category Badge */}
-          <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-gray-900 border border-white/40 shadow-sm text-xs font-bold">
+          {/* Type Badge */}
+          <div className="absolute top-4 left-4 flex items-center gap-2 px-3.5 py-1 bg-white/90 backdrop-blur-md rounded-full text-[#1D1D1F] border border-white text-xs font-semibold shadow-md">
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: item.accentColor }} />
             <span>{item.type}</span>
           </div>
 
-          {/* Hover Button */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-950/30 backdrop-blur-[2px]">
+          {/* Hover Play / View Icon */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
             <div 
-              className="w-12 h-12 rounded-2xl text-white flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform"
-              style={{ backgroundColor: item.accentColor }}
+              className="w-12 h-12 rounded-2xl text-white flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform bg-[#0071E3]"
             >
-              {item.category === 'video' ? <Play className="w-5 h-5 fill-current ml-0.5" /> : <ImageIcon className="w-5 h-5" />}
+              {item.category === 'video' ? <Play className="w-5 h-5 fill-current ml-0.5 text-white" /> : <ImageIcon className="w-5 h-5 text-white" />}
             </div>
           </div>
         </div>
 
-        {/* Card Content */}
-        <div className="p-5 sm:p-6 space-y-2.5 sm:space-y-3 bg-white text-left">
+        <div className="p-6 space-y-3 text-left">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-gray-400">
+            <span className="text-xs font-black uppercase tracking-wider text-[#0071E3]">
               {item.categoryLabel}
             </span>
-            <Sparkles className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: item.accentColor }} />
+            <Sparkles className="w-4 h-4 text-[#0071E3] opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
 
-          <h4 className="text-lg sm:text-xl font-extrabold text-[#1D1D1F] group-hover:text-blue-600 transition-colors tracking-tight leading-snug">
+          <h4 className="text-xl font-black text-[#1D1D1F] group-hover:text-[#0071E3] transition-colors tracking-tight leading-snug uppercase">
             {item.title}
           </h4>
 
-          <p className="text-xs text-gray-600 leading-relaxed font-normal line-clamp-2">
+          <p className="text-xs text-[#6E6E73] leading-relaxed font-normal line-clamp-2">
             {item.description}
           </p>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100">
+          <div className="flex flex-wrap gap-1.5 pt-3 border-t border-black/5">
             {item.tags.map((t) => (
-              <span key={t} className="text-[10px] font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 bg-gray-100 rounded-md text-gray-600 border border-gray-200/60">
+              <span key={t} className="text-[10px] font-semibold px-2.5 py-1 bg-black/5 rounded-lg text-[#48484A] border border-black/5">
                 #{t}
               </span>
             ))}
@@ -211,17 +192,6 @@ export default function PortfolioGallery() {
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  // Scroll Tracking & Velocity Skew
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const scrollVelocity = useVelocity(scrollYProgress);
-  const scrollVelocitySkew = useTransform(scrollVelocity, [-1, 1], [-3, 3]);
-
-  const TITLE_WORDS = ["Crafted", "with", "precision", "&", "purpose."];
-
   const filteredItems = activeCategory === 'all'
     ? PORTFOLIO_ITEMS
     : PORTFOLIO_ITEMS.filter((item) => item.category === activeCategory);
@@ -230,64 +200,32 @@ export default function PortfolioGallery() {
     <section 
       ref={sectionRef} 
       id="portfolio" 
-      className="py-20 sm:py-24 lg:py-36 px-4 sm:px-6 lg:px-8 bg-[#FAFAFC] border-t border-gray-200/80 relative z-30 overflow-hidden"
+      className="py-24 lg:py-36 px-4 sm:px-6 lg:px-8 bg-[#F5F5F7] text-[#1D1D1F] border-t border-black/5 relative z-30 overflow-hidden"
     >
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+      {/* Subtle Ceramic Radial Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#00000008_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
         
-        {/* KINETIC SCROLL REVEAL HEADER */}
-        <div className="text-center max-w-2xl mx-auto space-y-3 sm:space-y-4">
+        {/* HEADER */}
+        <div className="text-center max-w-3xl mx-auto space-y-4">
           
-          {/* Badge */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8, y: 15 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: false, margin: "-40px" }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50/80 border border-emerald-200/60 text-emerald-600 text-xs font-bold uppercase tracking-wider"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Featured Client Work</span>
-          </motion.div>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-white/95 text-[#0071E3] text-xs font-bold uppercase tracking-widest shadow-sm">
+            <Layers className="w-3.5 h-3.5" />
+            <span>Studio Selected Works</span>
+          </div>
 
-          {/* Kinetic Word-by-Word Title Reveal */}
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1D1D1F] tracking-tight leading-tight flex flex-wrap justify-center gap-x-2.5 sm:gap-x-3 gap-y-1 overflow-hidden py-1">
-            {TITLE_WORDS.map((word, idx) => (
-              <motion.span
-                key={idx}
-                initial={{ y: "120%", opacity: 0, rotate: 5, filter: 'blur(8px)' }}
-                whileInView={{ y: "0%", opacity: 1, rotate: 0, filter: 'blur(0px)' }}
-                viewport={{ once: false, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: idx * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block"
-              >
-                {word}
-              </motion.span>
-            ))}
+          <h2 className="text-4xl sm:text-6xl font-black text-[#1D1D1F] tracking-tight leading-tight uppercase">
+            Crafted for <span className="bg-gradient-to-r from-[#0071E3] via-blue-600 to-indigo-600 bg-clip-text text-transparent">Market Authority</span>
           </h2>
 
-          {/* Subtitle */}
-          <motion.p 
-            initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            viewport={{ once: false, margin: "-40px" }}
-            transition={{ duration: 0.45, delay: 0.3 }}
-            className="text-sm sm:text-lg text-gray-500 font-normal leading-relaxed"
-          >
-            Explore our curated portfolio of full-stack web applications, brand identities, commercial photography, and promo reels.
-          </motion.p>
+          <p className="text-base sm:text-xl text-[#6E6E73] font-normal leading-relaxed">
+            Explore our curated portfolio of zero-lag web apps, SaaS engines, 3D brand assets, and 4K cinema media.
+          </p>
 
-          {/* Category Filter Bar */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-40px" }}
-            transition={{ duration: 0.45, delay: 0.4 }}
-            className="pt-2 sm:pt-4 flex justify-center"
-          >
-            <div className="inline-flex p-1 sm:p-1.5 rounded-2xl bg-gray-200/60 backdrop-blur-md border border-gray-300/40 overflow-x-auto max-w-full no-scrollbar">
+          {/* Filter Bar (Tactile Skeuomorphic Pills) */}
+          <div className="pt-4 flex justify-center">
+            <div className="inline-flex p-1.5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/95 shadow-[0_4px_16px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,1)] overflow-x-auto max-w-full no-scrollbar">
               {CATEGORIES.map((cat) => {
                 const isActive = activeCategory === cat.id;
 
@@ -295,34 +233,28 @@ export default function PortfolioGallery() {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-colors duration-200 whitespace-nowrap z-10 ${
-                      isActive ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'
+                    className={`relative px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 whitespace-nowrap ${
+                      isActive 
+                        ? 'bg-[#0071E3] text-white font-bold shadow-[0_2px_12px_rgba(0,113,227,0.35)] scale-105' 
+                        : 'text-[#6E6E73] hover:text-[#1D1D1F] hover:bg-black/5'
                     }`}
                   >
-                    {isActive && (
-                      <motion.div
-                        layoutId="portfolioCategoryPill"
-                        className="absolute inset-0 bg-white rounded-xl shadow-sm border border-gray-200/80 -z-10"
-                        transition={{ type: "spring", stiffness: 450, damping: 35 }}
-                      />
-                    )}
                     <span>{cat.label}</span>
                   </button>
                 );
               })}
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* VELOCITY-SKEWED 3D CARDS GRID */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* 3D CARDS GRID */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
-              <KineticVelocityCard
+              <Interactive3DTiltCard
                 key={item.id}
                 item={item}
                 index={index}
-                scrollVelocitySkew={scrollVelocitySkew}
                 isDesktop={isDesktop}
                 onClick={() => setSelectedItem(item)}
               />
@@ -330,71 +262,65 @@ export default function PortfolioGallery() {
           </AnimatePresence>
         </motion.div>
 
-        {/* LIGHTBOX MODAL */}
+        {/* LIGHTBOX MODAL (Apple VisionOS Frosted Modal) */}
         <AnimatePresence>
           {selectedItem && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-gray-950/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+              className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xl flex items-center justify-center p-4"
               onClick={() => setSelectedItem(null)}
             >
               <motion.div
-                initial={{ scale: 0.92, y: 20 }}
+                initial={{ scale: 0.9, y: 30 }}
                 animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.92, y: 20 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-white border border-gray-200 rounded-3xl max-w-3xl w-full p-5 sm:p-8 space-y-5 sm:space-y-6 relative shadow-2xl overflow-hidden"
+                exit={{ scale: 0.9, y: 30 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="bg-white/95 border border-white/95 rounded-3xl max-w-3xl w-full p-6 sm:p-8 space-y-6 relative shadow-[0_25px_70px_rgba(0,0,0,0.18)] overflow-hidden text-[#1D1D1F]"
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* Accent Top Bar */}
-                <div 
-                  className="absolute top-0 left-0 right-0 h-1.5" 
-                  style={{ backgroundColor: selectedItem.accentColor }}
-                />
-
                 <button
                   onClick={() => setSelectedItem(null)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100 transition-colors"
+                  className="absolute top-5 right-5 text-[#86868B] hover:text-[#1D1D1F] p-2 rounded-full hover:bg-black/5 transition-colors"
                 >
-                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <X className="w-6 h-6" />
                 </button>
 
-                <div className="relative h-56 sm:h-80 rounded-2xl overflow-hidden shadow-md border border-gray-200">
+                <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden border border-black/5 shadow-inner">
                   <img
                     src={selectedItem.image}
                     alt={selectedItem.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
                   
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between text-white text-xs font-bold">
-                    <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/20">
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-bold">
+                    <span className="px-3.5 py-1.5 rounded-lg bg-white/90 backdrop-blur-md border border-white text-[#1D1D1F] shadow-sm">
                       {selectedItem.type}
                     </span>
-                    <span className="flex items-center gap-1 text-blue-300">
-                      <Sparkles className="w-3.5 h-3.5" /> High Resolution
+                    <span className="flex items-center gap-1.5 text-blue-300 font-mono">
+                      <Sparkles className="w-3.5 h-3.5" /> 4K Ultra-Res
                     </span>
                   </div>
                 </div>
 
-                <div className="space-y-2.5 text-left">
-                  <span className="text-xs font-extrabold uppercase tracking-wider" style={{ color: selectedItem.accentColor }}>
+                <div className="space-y-3 text-left">
+                  <span className="text-xs font-black uppercase tracking-wider text-[#0071E3]">
                     {selectedItem.categoryLabel}
                   </span>
-                  <h3 className="text-xl sm:text-3xl font-extrabold text-[#1D1D1F] tracking-tight">
+                  <h3 className="text-2xl sm:text-4xl font-black tracking-tight uppercase text-[#1D1D1F]">
                     {selectedItem.title}
                   </h3>
-                  <p className="text-xs sm:text-base text-gray-600 leading-relaxed font-normal">
+                  <p className="text-sm text-[#6E6E73] leading-relaxed font-normal">
                     {selectedItem.description}
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 sm:pt-4 border-t border-gray-100">
-                  <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-black/5">
+                  <div className="flex flex-wrap gap-2">
                     {selectedItem.tags.map((t) => (
-                      <span key={t} className="text-[11px] sm:text-xs font-bold px-2.5 py-1 bg-gray-100 rounded-lg text-gray-700 border border-gray-200/60">
+                      <span key={t} className="text-xs font-semibold px-3 py-1 bg-black/5 rounded-lg text-[#48484A] border border-black/5">
                         #{t}
                       </span>
                     ))}
@@ -403,10 +329,10 @@ export default function PortfolioGallery() {
                   <a
                     href="#quote"
                     onClick={() => setSelectedItem(null)}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold px-6 py-3 rounded-xl bg-[#1D1D1F] text-white hover:bg-blue-600 transition-colors shadow-md"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold px-6 py-3.5 rounded-xl bg-[#0071E3] hover:bg-blue-600 text-white uppercase tracking-wider shadow-[0_4px_16px_rgba(0,113,227,0.35)] transition-all"
                   >
                     <span>Request Similar Project</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </a>
                 </div>
 

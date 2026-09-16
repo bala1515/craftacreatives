@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" fill="none">
+  <defs>
+    <linearGradient id="videoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A0B1E" />
+      <stop offset="50%" stop-color="#2D0B2E" />
+      <stop offset="100%" stop-color="#0E0514" />
+    </linearGradient>
+    <linearGradient id="roseGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="50%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#FF46A2" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="650" fill="url(#videoBg)" />
+
+  <!-- Video Editor Frame -->
+  <rect x="70" y="60" width="860" height="530" rx="16" fill="#120716" stroke="#4C1D4F" stroke-width="2" />
+  
+  <!-- Editor Header -->
+  <rect x="70" y="60" width="860" height="46" rx="16" fill="#200A25" />
+  <circle cx="100" cy="83" r="6" fill="#F43F5E" />
+  <circle cx="120" cy="83" r="6" fill="#FBBF24" />
+  <circle cx="140" cy="83" r="6" fill="#10B981" />
+  <text x="500" y="88" fill="#F472B6" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">AFTER EFFECTS &amp; RESOLVE • 4K TIMELINE MASTER</text>
+
+  <!-- Video Preview Screen -->
+  <rect x="110" y="130" width="780" height="240" rx="12" fill="#0A020D" stroke="#37143A" />
+  
+  <!-- Play Center Button Glow -->
+  <circle cx="500" cy="250" r="44" fill="#F43F5E" opacity="0.9" />
+  <polygon points="492,235 516,250 492,265" fill="#FFFFFF" />
+
+  <!-- Video Timeline Tracks Below -->
+  <rect x="110" y="390" width="780" height="170" rx="10" fill="#1B0A21" stroke="#3A1540" />
+
+  <!-- Video Track 1 -->
+  <rect x="130" y="410" width="220" height="30" rx="6" fill="#BE185D" opacity="0.8" />
+  <text x="145" y="430" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="600">Scene_01_Intro.mov</text>
+
+  <rect x="360" y="410" width="310" height="30" rx="6" fill="#9D174D" opacity="0.8" />
+  <text x="375" y="430" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="600">Scene_02_PromoDrop_4K.mov</text>
+
+  <rect x="680" y="410" width="190" height="30" rx="6" fill="#BE185D" opacity="0.8" />
+  <text x="695" y="430" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="600">Outro_Logo.mov</text>
+
+  <!-- Audio Waveform Track 2 -->
+  <rect x="130" y="455" width="740" height="40" rx="6" fill="#0F0514" stroke="#4C1D4F" />
+  <!-- Waveform Bars -->
+  <g fill="#F43F5E" opacity="0.85">
+    <rect x="150" y="465" width="4" height="20" rx="2" />
+    <rect x="160" y="460" width="4" height="30" rx="2" />
+    <rect x="170" y="470" width="4" height="10" rx="2" />
+    <rect x="180" y="458" width="4" height="34" rx="2" />
+    <rect x="190" y="462" width="4" height="26" rx="2" />
+    <rect x="200" y="468" width="4" height="14" rx="2" />
+    <rect x="210" y="459" width="4" height="32" rx="2" />
+    <rect x="220" y="464" width="4" height="22" rx="2" />
+    <rect x="230" y="460" width="4" height="30" rx="2" />
+    <rect x="240" y="471" width="4" height="8" rx="2" />
+    <rect x="250" y="458" width="4" height="34" rx="2" />
+    <rect x="260" y="463" width="4" height="24" rx="2" />
+    <rect x="270" y="467" width="4" height="16" rx="2" />
+    <rect x="280" y="461" width="4" height="28" rx="2" />
+    <rect x="290" y="459" width="4" height="32" rx="2" />
+    <rect x="300" y="465" width="4" height="20" rx="2" />
+    <!-- Additional dense bars -->
+    <rect x="320" y="460" width="120" height="4" fill="#FB7185" />
+    <rect x="460" y="460" width="180" height="4" fill="#FB7185" />
+    <rect x="660" y="460" width="180" height="4" fill="#FB7185" />
+  </g>
+
+  <!-- Playhead Needle -->
+  <line x1="500" y1="390" x2="500" y2="550" stroke="#00F0FF" stroke-width="3" />
+  <polygon points="492,390 508,390 500,404" fill="#00F0FF" />
+</svg>
