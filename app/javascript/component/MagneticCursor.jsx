@@ -63,11 +63,11 @@ export default function MagneticCursor() {
         animate={{
           scale: isClicking ? 0.75 : isHovered ? 2.2 : 1,
           opacity: isHovered ? 0.95 : 0.6,
-          borderColor: isHovered ? '#FF46A2' : 'rgba(0, 240, 255, 0.45)',
-          backgroundColor: isHovered ? 'rgba(255, 70, 162, 0.15)' : 'rgba(0, 240, 255, 0.08)',
+          borderColor: isHovered ? '#c8ff3d' : 'rgba(36, 87, 255, 0.5)',
+          backgroundColor: isHovered ? 'rgba(200, 255, 61, 0.18)' : 'rgba(36, 87, 255, 0.08)',
         }}
         transition={{ duration: 0.18, ease: 'easeOut' }}
-        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full border border-[#00F0FF]/40 backdrop-blur-[1px] shadow-[0_4px_16px_rgba(255,70,162,0.25)] transition-colors"
+        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full border border-[#2457ff]/40 backdrop-blur-[1px] shadow-[0_4px_16px_rgba(36,87,255,0.25)] transition-colors"
       />
 
       {/* Center Precise Studio Dot */}
@@ -78,10 +78,10 @@ export default function MagneticCursor() {
         }}
         animate={{
           scale: isClicking ? 0.5 : isHovered ? 0.4 : 1,
-          backgroundColor: isHovered ? '#FF46A2' : '#1D1D1F',
+          backgroundColor: isHovered ? '#2457ff' : '#0B0F19',
         }}
         transition={{ duration: 0.1 }}
-        className="fixed -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#1D1D1F] shadow-[0_1px_4px_rgba(0,0,0,0.25)]"
+        className="fixed -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#0B0F19] shadow-[0_1px_4px_rgba(0,0,0,0.25)]"
       />
     </div>
   );

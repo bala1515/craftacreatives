@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import CreativeAgencyBackground from '../CreativeAgencyBackground';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +28,7 @@ export default function HeroSection() {
 
   // The code characters typed out: <crafta />
   const codeChars = [
-    { char: '<', colorClass: 'text-[#00F0FF]' },
+    { char: '<', colorClass: 'text-[#2457ff]' },
     { char: 'c', colorClass: 'text-white' },
     { char: 'r', colorClass: 'text-white' },
     { char: 'a', colorClass: 'text-white' },
@@ -35,8 +36,8 @@ export default function HeroSection() {
     { char: 't', colorClass: 'text-white' },
     { char: 'a', colorClass: 'text-white' },
     { char: '\u00A0', colorClass: 'text-white' },
-    { char: '/', colorClass: 'text-[#FF46A2]' },
-    { char: '>', colorClass: 'text-[#00F0FF]' },
+    { char: '/', colorClass: 'text-[#c8ff3d]' },
+    { char: '>', colorClass: 'text-[#2457ff]' },
   ];
 
   const creativesWord = "CREATIVES".split("");
@@ -223,7 +224,7 @@ export default function HeroSection() {
       gsap.set(creativesLettersRef.current, {
         opacity: 0,
         scale: 0.85,
-        color: '#00F0FF'
+        color: '#c8ff3d'
       });
 
       /* =============================================================
@@ -252,8 +253,8 @@ export default function HeroSection() {
       // Step 2A: The code box outer frame smoothly expands with neon glow & morph audio
       masterTl.to(codeBoxRef.current, {
         scale: 1.06,
-        borderColor: '#00F0FF',
-        boxShadow: '0 0 30px rgba(0, 240, 255, 0.5)',
+        borderColor: '#2457ff',
+        boxShadow: '0 0 35px rgba(36, 87, 255, 0.55)',
         duration: 0.22,
         ease: 'power2.out',
         onStart: playMorphWhoosh
@@ -431,45 +432,12 @@ export default function HeroSection() {
       }, 'timelineSweep+=0.04');
 
       /* =============================================================
-         PHASE 5: POP ART COLOR CYCLING (#00F0FF -> #FF46A2 -> #FFFF00 -> #EE4B2B -> SOLID BLACK #1D1D1F)
+         PHASE 5: FINAL RESTING STATE: PURE ELECTRIC STUDIO LIME (#c8ff3d)
       ============================================================= */
-      // 1. Electric Blue (#00F0FF)
       masterTl.to(creativesLettersRef.current, {
-        color: '#00F0FF',
-        duration: 0.28,
-        stagger: 0.04,
-        ease: 'none'
-      });
-
-      // 2. Hot Pink (#FF46A2)
-      masterTl.to(creativesLettersRef.current, {
-        color: '#FF46A2',
-        duration: 0.28,
-        stagger: 0.04,
-        ease: 'none'
-      });
-
-      // 3. Neon Yellow (#FFFF00)
-      masterTl.to(creativesLettersRef.current, {
-        color: '#FFFF00',
-        duration: 0.28,
-        stagger: 0.04,
-        ease: 'none'
-      });
-
-      // 4. Vibrant Red (#EE4B2B)
-      masterTl.to(creativesLettersRef.current, {
-        color: '#EE4B2B',
-        duration: 0.28,
-        stagger: 0.04,
-        ease: 'none'
-      });
-
-      // 5. Final Resting State: Bold Solid Black (#1D1D1F)
-      masterTl.to(creativesLettersRef.current, {
-        color: '#1D1D1F',
-        duration: 0.45,
-        stagger: 0.05,
+        color: '#c8ff3d',
+        duration: 0.3,
+        stagger: 0.03,
         ease: 'power2.out'
       });
 
@@ -539,7 +507,7 @@ export default function HeroSection() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#F8F8FA] text-[#1D1D1F] overflow-hidden selection:bg-[#FF46A2] selection:text-white z-10"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#F8F8FA] text-[#1D1D1F] overflow-hidden selection:bg-[#c8ff3d] selection:text-[#0B0F19] z-10"
     >
       {/* Fullscreen Camera Shutter Flash Overlay */}
       <div 
@@ -547,84 +515,10 @@ export default function HeroSection() {
         className="fixed inset-0 bg-white pointer-events-none z-[100] opacity-0"
       />
 
-      {/* Subtle Pop Art Dot Matrix Grid */}
-      <div 
-        className="absolute inset-0 bg-[radial-gradient(#0000000a_1.2px,transparent_1.2px)] [background-size:22px_22px] pointer-events-none z-0"
-      />
+      {/* UNIQUE INTERACTIVE CREATIVE AGENCY STUDIO BACKGROUND */}
+      <CreativeAgencyBackground mousePos={mousePos} />
 
-      {/* Dynamic Pop Art High-Energy Lighting Mesh */}
-      <div 
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-[#00F0FF]/15 rounded-full blur-[140px] pointer-events-none transition-transform duration-700 ease-out z-0"
-        style={{
-          transform: `translate(calc(-50% + ${mousePos.x * 2}px), calc(-50% + ${mousePos.y * 2}px))`,
-        }}
-      />
-      <div 
-        className="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#FFFF00]/12 rounded-full blur-[120px] pointer-events-none transition-transform duration-1000 ease-out z-0"
-        style={{
-          transform: `translate(calc(-50% - ${mousePos.x * 1.5}px), calc(-50% - ${mousePos.y * 1.5}px))`,
-        }}
-      />
-      <div 
-        className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-[#FF46A2]/10 rounded-full blur-[130px] pointer-events-none transition-transform duration-900 ease-out z-0"
-        style={{
-          transform: `translate(${mousePos.x * 1.2}px, ${mousePos.y * 1.2}px)`,
-        }}
-      />
 
-      {/* FLOATING CREATIVE AMBIENT BACKGROUND ELEMENTS */}
-      {/* 1. Code Bracket Pill (Top Left) */}
-      <div className="hero-bg-floating-1 absolute top-28 left-6 sm:left-16 md:left-24 z-0 pointer-events-none opacity-40 hover:opacity-70 transition-opacity">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 border border-black/10 shadow-[2px_2px_0px_#1D1D1F] font-mono text-xs font-bold text-[#00F0FF] backdrop-blur-sm">
-          <span className="text-[#FF46A2]">&lt;</span>
-          <span className="text-[#1D1D1F]">dev</span>
-          <span className="text-[#FF46A2]">/&gt;</span>
-        </div>
-      </div>
-
-      {/* 2. Camera Viewfinder Reticle (Top Right) */}
-      <div className="hero-bg-floating-2 absolute top-32 right-8 sm:right-20 md:right-28 z-0 pointer-events-none opacity-35">
-        <svg className="w-12 h-12 text-[#1D1D1F]" viewBox="0 0 48 48" fill="none">
-          <path d="M4 14V6C4 4.9 4.9 4 6 4H14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M44 14V6C44 4.9 43.1 4 42 4H34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M4 34V42C4 43.1 4.9 44 6 44H14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M44 34V42C44 43.1 43.1 44 42 44H34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-          <circle cx="24" cy="24" r="3" fill="#EE4B2B" />
-        </svg>
-      </div>
-
-      {/* 3. Photoshop Pen Tool / Vector Anchor (Bottom Left) */}
-      <div className="hero-bg-floating-3 absolute bottom-24 left-8 sm:left-20 md:left-32 z-0 pointer-events-none opacity-40">
-        <div className="flex items-center gap-2 p-2 rounded-xl bg-white/80 border border-black/10 shadow-[3px_3px_0px_#00F0FF] backdrop-blur-sm">
-          <svg className="w-6 h-6 text-[#1D1D1F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-            <circle cx="11" cy="11" r="2" fill="#FFFF00"/>
-          </svg>
-          <span className="font-mono text-[10px] font-bold text-[#1D1D1F]">vector.ai</span>
-        </div>
-      </div>
-
-      {/* 4. Film Reel / Premiere Play Track (Bottom Right) */}
-      <div className="hero-bg-floating-4 absolute bottom-28 right-8 sm:right-24 md:right-36 z-0 pointer-events-none opacity-40">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1E1E24] text-white border border-black shadow-[3px_3px_0px_#FF46A2] font-mono text-[10px]">
-          <span className="w-2 h-2 rounded-full bg-[#EE4B2B] animate-ping" />
-          <span className="text-[#00F0FF] font-bold">REC</span>
-          <span className="text-gray-400">4K 60FPS</span>
-        </div>
-      </div>
-
-      {/* 5. Pop Art Starburst Sparkle (Center Right) */}
-      <div className="hero-bg-floating-1 absolute top-1/2 -translate-y-1/2 right-4 sm:right-12 z-0 pointer-events-none opacity-30">
-        <svg className="w-8 h-8 text-[#FFFF00]" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
-        </svg>
-      </div>
-
-      {/* 6. Pop Art Crosses (Center Left) */}
-      <div className="hero-bg-floating-2 absolute top-1/2 -translate-y-1/2 left-4 sm:left-12 z-0 pointer-events-none opacity-30">
-        <span className="text-2xl font-black text-[#FF46A2] select-none">+ +</span>
-      </div>
 
       {/* Top Controls: Replay Button */}
       <div className="absolute top-24 sm:top-28 right-4 sm:right-8 lg:right-12 z-20 flex items-center justify-end">
@@ -634,7 +528,7 @@ export default function HeroSection() {
           className="group flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border-2 border-black/10 text-xs font-black uppercase tracking-wider text-[#1D1D1F] shadow-[3px_3px_0px_#1D1D1F] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#1D1D1F] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all cursor-pointer"
           title="Replay Entrance Animation"
         >
-          <span className="w-2 h-2 rounded-full bg-[#00F0FF] group-hover:bg-[#FF46A2] transition-colors" />
+          <span className="w-2 h-2 rounded-full bg-[#2457ff] group-hover:bg-[#c8ff3d] transition-colors" />
           <span>Replay</span>
         </button>
       </div>
@@ -652,7 +546,7 @@ export default function HeroSection() {
             className="col-start-1 row-start-1 inline-flex items-center gap-2 sm:gap-3 bg-[#1E1E24] text-white px-5 sm:px-8 py-3.5 sm:py-5 rounded-2xl border-2 border-black shadow-[5px_5px_0px_#1D1D1F] font-mono text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight z-20"
           >
             {/* Terminal prompt symbol */}
-            <span className="text-[#00F0FF] text-xl sm:text-3xl select-none font-black">&gt;</span>
+            <span className="text-[#2457ff] text-xl sm:text-3xl select-none font-black">&gt;</span>
 
             {/* The Code Letters */}
             <div className="flex items-center">
@@ -670,7 +564,7 @@ export default function HeroSection() {
               {/* Blinking Terminal Cursor */}
               <span 
                 ref={codeCursorRef}
-                className="inline-block w-2.5 sm:w-3.5 h-6 sm:h-9 bg-[#00F0FF] ml-1.5 animate-pulse"
+                className="inline-block w-2.5 sm:w-3.5 h-6 sm:h-9 bg-[#c8ff3d] ml-1.5 animate-pulse"
               />
             </div>
           </div>
@@ -681,12 +575,12 @@ export default function HeroSection() {
             className="col-start-1 row-start-1 flex items-center justify-center select-none pointer-events-none opacity-0"
           >
             <div className="relative inline-flex items-center">
-              <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] font-black tracking-tighter leading-[0.88] uppercase select-none flex">
+              <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] font-black tracking-tight leading-[0.95] uppercase select-none flex gap-0.5 sm:gap-1.5">
                 {craftaLetters.map((l, idx) => (
                   <span
                     key={idx}
                     ref={el => craftaLettersRef.current[idx] = el}
-                    className="inline-block transform-gpu bg-gradient-to-br from-[#1D1D1F] via-[#2D1B69] to-[#FF46A2] bg-clip-text text-transparent drop-shadow-[0_4px_16px_rgba(45,27,105,0.2)]"
+                    className="inline-block transform-gpu clay-text-cobalt"
                   >
                     {l}
                   </span>
@@ -701,7 +595,7 @@ export default function HeroSection() {
                 {/* Pop Art Flash Burst Ring */}
                 <div 
                   ref={cameraFlashRef}
-                  className="absolute -left-5 top-8 w-16 h-16 rounded-full bg-[#FFFF00] blur-[2px] pointer-events-none opacity-0 z-40 border-4 border-white shadow-[0_0_35px_#FFFF00]"
+                  className="absolute -left-5 top-8 w-16 h-16 rounded-full bg-[#c8ff3d] blur-[2px] pointer-events-none opacity-0 z-40 border-4 border-white shadow-[0_0_35px_#c8ff3d]"
                 />
 
                 {/* Cartoon Photographer SVG Character */}
@@ -712,8 +606,8 @@ export default function HeroSection() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* Cute Studio Cap */}
-                  <ellipse cx="68" cy="36" rx="26" ry="12" fill="#EE4B2B" stroke="#1D1D1F" strokeWidth="3" />
-                  <path d="M42 36C42 22 52 14 68 14C84 14 94 22 94 36" fill="#EE4B2B" stroke="#1D1D1F" strokeWidth="3" />
+                  <ellipse cx="68" cy="36" rx="26" ry="12" fill="#FF4D36" stroke="#1D1D1F" strokeWidth="3" />
+                  <path d="M42 36C42 22 52 14 68 14C84 14 94 22 94 36" fill="#FF4D36" stroke="#1D1D1F" strokeWidth="3" />
                   <path d="M78 36L102 38" stroke="#1D1D1F" strokeWidth="4" strokeLinecap="round" />
 
                   {/* Character Head */}
@@ -722,44 +616,44 @@ export default function HeroSection() {
                   {/* Winking / Aiming Eyes */}
                   <circle cx="60" cy="44" r="3.5" fill="#1D1D1F" />
                   <path d="M72 45Q77 41 82 45" stroke="#1D1D1F" strokeWidth="3" strokeLinecap="round" />
-                  <ellipse cx="55" cy="51" rx="4" ry="2.5" fill="#FF46A2" opacity="0.6" />
-                  <ellipse cx="80" cy="51" rx="4" ry="2.5" fill="#FF46A2" opacity="0.6" />
+                  <ellipse cx="55" cy="51" rx="4" ry="2.5" fill="#FF4D36" opacity="0.35" />
+                  <ellipse cx="80" cy="51" rx="4" ry="2.5" fill="#FF4D36" opacity="0.35" />
 
                   {/* Stylish Jacket / Torso */}
-                  <path d="M48 70C48 64 56 62 68 62C80 62 88 64 88 70L94 104H42L48 70Z" fill="#00F0FF" stroke="#1D1D1F" strokeWidth="3.5" />
+                  <path d="M48 70C48 64 56 62 68 62C80 62 88 64 88 70L94 104H42L48 70Z" fill="#2457ff" stroke="#1D1D1F" strokeWidth="3.5" />
                   <line x1="68" y1="62" x2="68" y2="104" stroke="#1D1D1F" strokeWidth="3" />
-                  <circle cx="68" cy="74" r="2.5" fill="#FFFF00" />
-                  <circle cx="68" cy="84" r="2.5" fill="#FFFF00" />
+                  <circle cx="68" cy="74" r="2.5" fill="#c8ff3d" />
+                  <circle cx="68" cy="84" r="2.5" fill="#c8ff3d" />
 
                   {/* DSLR Camera Body in Hands */}
                   <g transform="translate(18, 52)">
                     {/* Camera Strap */}
-                    <path d="M22 6C14 -4 4 -4 -4 14" stroke="#EE4B2B" strokeWidth="3.5" fill="none" strokeDasharray="4 2" />
+                    <path d="M22 6C14 -4 4 -4 -4 14" stroke="#FF4D36" strokeWidth="3.5" fill="none" strokeDasharray="4 2" />
 
                     {/* DSLR Main Chassis */}
                     <rect x="0" y="8" width="50" height="34" rx="7" fill="#1D1D1F" stroke="#FFFFFF" strokeWidth="2" />
                     <rect x="14" y="2" width="22" height="7" rx="3" fill="#333333" stroke="#FFFFFF" strokeWidth="1.5" />
                     
                     {/* Red Pro Ring Accent */}
-                    <line x1="6" y1="12" x2="44" y2="12" stroke="#EE4B2B" strokeWidth="2" />
+                    <line x1="6" y1="12" x2="44" y2="12" stroke="#FF4D36" strokeWidth="2" />
 
                     {/* DSLR Big Zoom Lens */}
-                    <circle cx="25" cy="25" r="14" fill="#222222" stroke="#00F0FF" strokeWidth="3" />
-                    <circle cx="25" cy="25" r="9" fill="#00F0FF" stroke="#FFFF00" strokeWidth="2.5" />
+                    <circle cx="25" cy="25" r="14" fill="#222222" stroke="#2457ff" strokeWidth="3" />
+                    <circle cx="25" cy="25" r="9" fill="#2457ff" stroke="#c8ff3d" strokeWidth="2.5" />
                     <circle cx="25" cy="25" r="5" fill="#1D1D1F" />
                     <circle cx="23" cy="23" r="2" fill="#FFFFFF" />
 
                     {/* Pop Art Flash Cube */}
-                    <rect x="3" y="10" width="8" height="6" rx="2" fill="#FFFF00" stroke="#1D1D1F" strokeWidth="1.5" />
+                    <rect x="3" y="10" width="8" height="6" rx="2" fill="#c8ff3d" stroke="#1D1D1F" strokeWidth="1.5" />
                     
                     {/* Hands Gripping DSLR */}
                     <circle cx="-1" cy="24" r="5.5" fill="#FFDBAC" stroke="#1D1D1F" strokeWidth="2" />
                     <circle cx="51" cy="24" r="5.5" fill="#FFDBAC" stroke="#1D1D1F" strokeWidth="2" />
 
                     {/* Shutter Button & "CLICK!" Comic Pop Bubble */}
-                    <circle cx="34" cy="4" r="2.5" fill="#EE4B2B" />
+                    <circle cx="34" cy="4" r="2.5" fill="#FF4D36" />
                     <g className="animate-pulse">
-                      <path d="M-6 -6L-14 -12L-6 -10L-10 -16L-3 -11L-2 -18L2 -10L6 -14L4 -7L12 -7L5 -3L10 2L2 0L-1 6L-3 0Z" fill="#FFFF00" stroke="#1D1D1F" strokeWidth="1.5" />
+                      <path d="M-6 -6L-14 -12L-6 -10L-10 -16L-3 -11L-2 -18L2 -10L6 -14L4 -7L12 -7L5 -3L10 2L2 0L-1 6L-3 0Z" fill="#c8ff3d" stroke="#1D1D1F" strokeWidth="1.5" />
                       <text x="-6" y="-6" fill="#1D1D1F" fontSize="8" fontWeight="900" fontFamily="sans-serif">CLICK</text>
                     </g>
                   </g>
@@ -824,9 +718,9 @@ export default function HeroSection() {
             <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-white border border-[#1D1D1F] shadow-[1px_1px_0px_rgba(0,0,0,0.5)] z-40" />
 
             {/* Photoshop Genuine Info Floating Badge (W: px, H: px) */}
-            <div className="absolute -bottom-7 right-0 bg-[#282828] text-white px-2 py-0.5 rounded text-[9px] font-mono border border-black/40 shadow-lg flex items-center gap-1.5">
-              <span className="text-[#00F0FF] font-black">W:</span> 100% 
-              <span className="text-[#00F0FF] font-black ml-1">H:</span> 100%
+            <div className="absolute -bottom-7 right-0 bg-[#0B0F19] text-white px-2 py-0.5 rounded text-[9px] font-mono border border-[#2457ff]/30 shadow-lg flex items-center gap-1.5">
+              <span className="text-[#c8ff3d] font-black">W:</span> 100% 
+              <span className="text-[#c8ff3d] font-black ml-1">H:</span> 100%
             </div>
           </div>
 
@@ -835,34 +729,34 @@ export default function HeroSection() {
             ref={timelineIndicatorRef}
             className="absolute -top-7 sm:-top-9 -bottom-2 sm:-bottom-3 w-[2px] z-50 pointer-events-none opacity-0"
           >
-            {/* Genuine Premiere Pro Blue Pentagonal Playhead Head */}
+            {/* Genuine Premiere Pro Cobalt Pentagonal Playhead Head */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
               {/* Premiere Pro Blue Head Shape */}
-              <svg className="w-4 h-5 sm:w-5 sm:h-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" viewBox="0 0 20 24" fill="none">
-                <path d="M0 0H20V14L10 24L0 14V0Z" fill="#3B82F6" stroke="#1E40AF" strokeWidth="1" />
+              <svg className="w-4 h-5 sm:w-5 sm:h-6 drop-shadow-[0_2px_6px_rgba(36,87,255,0.6)]" viewBox="0 0 20 24" fill="none">
+                <path d="M0 0H20V14L10 24L0 14V0Z" fill="#2457ff" stroke="#1436b8" strokeWidth="1" />
                 <circle cx="10" cy="7" r="2" fill="#FFFFFF" />
               </svg>
 
               {/* Timecode Box (00:00:01:24) */}
               <span 
                 ref={timecodeRef}
-                className="text-[8px] sm:text-[9px] font-mono font-bold text-[#3B82F6] bg-[#1E1E1E] border border-blue-500/40 px-1 py-0.2 rounded shadow-md whitespace-nowrap mt-0.5"
+                className="text-[8px] sm:text-[9px] font-mono font-bold text-[#c8ff3d] bg-[#0B0F19] border border-[#2457ff]/60 px-1 py-0.2 rounded shadow-md whitespace-nowrap mt-0.5"
               >
                 00:01:24:00
               </span>
             </div>
 
-            {/* Premiere Pro Blue Vertical CTI Laser Needle */}
-            <div className="w-full h-full bg-[#3B82F6] shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
+            {/* Premiere Pro Cobalt Vertical CTI Laser Needle */}
+            <div className="w-full h-full bg-[#2457ff] shadow-[0_0_10px_rgba(36,87,255,0.9)]" />
           </div>
 
           {/* THE "CREATIVES" LETTERS */}
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black tracking-tighter leading-[0.9] uppercase flex items-center justify-center">
+          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black tracking-tight leading-[0.95] uppercase flex items-center justify-center gap-0.5 sm:gap-1 text-[#c8ff3d]">
             {creativesWord.map((letter, idx) => (
               <span
                 key={idx}
                 ref={el => creativesLettersRef.current[idx] = el}
-                className="inline-block transform-gpu transition-colors duration-150 drop-shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
+                className="inline-block transform-gpu transition-colors duration-150 clay-text-lime"
               >
                 {letter}
               </span>

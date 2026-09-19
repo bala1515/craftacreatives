@@ -21,7 +21,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-36 px-4 sm:px-6 lg:px-8 bg-[#F8F8FA] text-[#1D1D1F] border-t border-black/5 relative z-30 overflow-hidden selection:bg-[#FF46A2] selection:text-white">
+    <section id="contact" className="py-24 lg:py-36 px-4 sm:px-6 lg:px-8 bg-[#F8F8FA] text-[#1D1D1F] border-t border-black/5 relative z-30 overflow-hidden selection:bg-[#c8ff3d] selection:text-[#0B0F19]">
       
       {/* Background Matrix Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#0000000a_1.2px,transparent_1.2px)] [background-size:22px_22px] pointer-events-none" />
@@ -30,13 +30,13 @@ export default function ContactSection() {
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFFF00] border border-black/15 text-black text-xs font-black uppercase tracking-widest shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#c8ff3d] border border-black/15 text-black text-xs font-black uppercase tracking-widest shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-black" />
             <span>Initiate Collaboration</span>
           </div>
 
           <h2 className="text-4xl sm:text-6xl font-black tracking-tight uppercase text-[#1D1D1F]">
-            Let's Build Something <span className="text-[#FF46A2]">Extraordinary</span>
+            Let's Build Something <span className="text-[#2457ff]">Extraordinary</span>
           </h2>
 
           <p className="text-base sm:text-xl text-[#6E6E73] font-normal">
@@ -56,8 +56,8 @@ export default function ContactSection() {
 
               <div className="space-y-5">
                 <div className="flex items-center gap-4 text-sm text-[#1D1D1F]">
-                  <div className="w-11 h-11 rounded-2xl bg-[#00F0FF] flex items-center justify-center text-black font-black shadow-sm">
-                    <Mail className="w-5 h-5 text-black" />
+                  <div className="w-11 h-11 rounded-2xl bg-[#2457ff] flex items-center justify-center text-white font-black shadow-[0_4px_14px_rgba(36,87,255,0.3)]">
+                    <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <div className="text-xs font-mono text-[#86868B]">Direct Email</div>
@@ -66,8 +66,8 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex items-center gap-4 text-sm text-[#1D1D1F]">
-                  <div className="w-11 h-11 rounded-2xl bg-[#FF46A2] flex items-center justify-center text-white font-black shadow-sm">
-                    <Phone className="w-5 h-5 text-white" />
+                  <div className="w-11 h-11 rounded-2xl bg-[#c8ff3d] flex items-center justify-center text-black font-black shadow-sm">
+                    <Phone className="w-5 h-5 text-black" />
                   </div>
                   <div>
                     <div className="text-xs font-mono text-[#86868B]">Call / Hotline</div>
@@ -76,8 +76,8 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex items-center gap-4 text-sm text-[#1D1D1F]">
-                  <div className="w-11 h-11 rounded-2xl bg-[#FFFF00] flex items-center justify-center text-black font-black shadow-sm">
-                    <MapPin className="w-5 h-5 text-black" />
+                  <div className="w-11 h-11 rounded-2xl bg-[#FF4D36] flex items-center justify-center text-white font-black shadow-sm">
+                    <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <div className="text-xs font-mono text-[#86868B]">Headquarters</div>
@@ -92,7 +92,7 @@ export default function ContactSection() {
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#00F0FF] hover:bg-[#00d6e6] text-black font-black py-3.5 px-4 rounded-xl shadow-sm transition-all duration-300 text-xs uppercase tracking-wider"
+                className="w-full flex items-center justify-center gap-2 bg-[#c8ff3d] hover:bg-[#bbf030] text-black font-black py-3.5 px-4 rounded-xl shadow-sm transition-all duration-300 text-xs uppercase tracking-wider"
               >
                 <MessageSquare className="w-4 h-4 text-black" /> Direct WhatsApp Inquiry
               </a>
@@ -103,7 +103,7 @@ export default function ContactSection() {
           <div className="lg:col-span-3 bg-white/85 border border-white/95 rounded-3xl p-8 shadow-[0_16px_40px_-8px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] backdrop-blur-2xl relative">
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-16">
-                <CheckCircle2 className="w-20 h-20 text-[#FF46A2] animate-bounce" />
+                <CheckCircle2 className="w-20 h-20 text-[#2457ff] animate-bounce" />
                 <h4 className="text-3xl font-black text-[#1D1D1F] uppercase tracking-tight">Inquiry Received!</h4>
                 <p className="text-sm text-[#6E6E73] max-w-md">
                   Thank you for reaching out to Crafta Creatives. Our lead engineer will review your inquiry and connect with you shortly.
@@ -120,7 +120,7 @@ export default function ContactSection() {
                       placeholder="Jane Doe"
                       value={formData.name}
                       onChange={e => setFormData({...formData, name: e.target.value})}
-                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] placeholder:text-[#86868B] shadow-inner focus:outline-none focus:border-[#00F0FF] focus:ring-2 focus:ring-[#00F0FF]/30 transition-all"
+                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] placeholder:text-[#86868B] shadow-inner focus:outline-none focus:border-[#2457ff] focus:ring-2 focus:ring-[#2457ff]/25 transition-all"
                     />
                   </div>
                   <div>
@@ -131,7 +131,7 @@ export default function ContactSection() {
                       placeholder="jane@company.com"
                       value={formData.email}
                       onChange={e => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] placeholder:text-[#86868B] shadow-inner focus:outline-none focus:border-[#00F0FF] focus:ring-2 focus:ring-[#00F0FF]/30 transition-all"
+                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] placeholder:text-[#86868B] shadow-inner focus:outline-none focus:border-[#2457ff] focus:ring-2 focus:ring-[#2457ff]/25 transition-all"
                     />
                   </div>
                 </div>
@@ -142,7 +142,7 @@ export default function ContactSection() {
                     <select
                       value={formData.service}
                       onChange={e => setFormData({...formData, service: e.target.value})}
-                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] focus:outline-none focus:border-[#00F0FF] focus:ring-2 focus:ring-[#00F0FF]/30 transition-all"
+                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] focus:outline-none focus:border-[#2457ff] focus:ring-2 focus:ring-[#2457ff]/25 transition-all"
                     >
                       <option>Web Development</option>
                       <option>Logo Design</option>
@@ -155,7 +155,7 @@ export default function ContactSection() {
                     <select
                       value={formData.budget}
                       onChange={e => setFormData({...formData, budget: e.target.value})}
-                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] focus:outline-none focus:border-[#00F0FF] focus:ring-2 focus:ring-[#00F0FF]/30 transition-all"
+                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] focus:outline-none focus:border-[#2457ff] focus:ring-2 focus:ring-[#2457ff]/25 transition-all"
                     >
                       <option>$200 - $500</option>
                       <option>$500 - $1000</option>
@@ -173,16 +173,16 @@ export default function ContactSection() {
                     placeholder="Describe your project vision, key deliverables, and target launch timeline..."
                     value={formData.message}
                     onChange={e => setFormData({...formData, message: e.target.value})}
-                    className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] placeholder:text-[#86868B] shadow-inner focus:outline-none focus:border-[#00F0FF] focus:ring-2 focus:ring-[#00F0FF]/30 transition-all"
+                    className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#1D1D1F] placeholder:text-[#86868B] shadow-inner focus:outline-none focus:border-[#2457ff] focus:ring-2 focus:ring-[#2457ff]/25 transition-all"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-[#EE4B2B] hover:bg-[#d43d1f] text-white font-black py-4 rounded-xl shadow-[0_4px_16px_rgba(238,75,43,0.35)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 text-xs uppercase tracking-wider"
+                  className="w-full flex items-center justify-center gap-2 bg-[#2457ff] hover:bg-[#1a44d6] text-white font-black py-4 rounded-xl shadow-[0_4px_16px_rgba(36,87,255,0.35)] hover:shadow-[0_4px_22px_rgba(200,255,61,0.35)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 text-xs uppercase tracking-wider"
                 >
                   <span>Submit Project Inquiry</span>
-                  <Send className="w-4 h-4 text-white" />
+                  <Send className="w-4 h-4 text-[#c8ff3d]" />
                 </button>
               </form>
             )}

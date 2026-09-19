@@ -8,11 +8,16 @@
   --color-lightMuted: #6E6E73;
   --color-lightBorder: rgba(0, 0, 0, 0.08);
 
-  /* Andy Warhol Pop Art Signature Palette */
-  --color-pop-blue: #00F0FF;
-  --color-pop-pink: #FF46A2;
-  --color-pop-yellow: #FFFF00;
-  --color-pop-red: #EE4B2B;
+  /* Modern Studio Signature Palette (70% Cobalt / 20% Lime / 10% Balance) */
+  --color-cobalt: #2457ff;
+  --color-lime: #c8ff3d;
+  --color-coral: #FF4D36;
+
+  /* Legacy Pop Art Aliases remapped to new palette */
+  --color-pop-blue: #2457ff;
+  --color-pop-pink: #c8ff3d;
+  --color-pop-yellow: #c8ff3d;
+  --color-pop-red: #FF4D36;
 }
 
 body {
@@ -24,13 +29,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Pop Art Vibrant Selection Highlight */
+/* Vibrant Studio Lime Selection Highlight */
 ::selection {
-  background-color: #FF46A2;
-  color: #FFFFFF;
+  background-color: #c8ff3d;
+  color: #0B0F19;
 }
 
-/* Pop Art Dynamic Scrollbar */
+/* Dynamic Studio Scrollbar (Cobalt with Lime hover) */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -38,11 +43,11 @@ body {
   background: #F8F8FA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #00F0FF;
+  background: #2457ff;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF46A2;
+  background: #c8ff3d;
 }
 
 /* Skeuomorphic Glass & Depth Utilities */
@@ -100,5 +105,98 @@ body {
   .popart-graffiti-letter {
     -webkit-text-stroke: 1.5px #1D1D1F;
     filter: drop-shadow(2.5px 3.5px 0px #1D1D1F);
+  }
+}
+
+/* Authentic 3D Tactile Claymorphism Typography (Softened Rounded Edges) */
+.clay-text-cobalt {
+  color: #2457ff;
+  display: inline-block;
+  transform: translateZ(0);
+  -webkit-text-stroke: 0.8px #2457ff;
+  paint-order: stroke fill;
+  text-shadow:
+    /* Top soft cushion highlight (soft sky-cobalt, NO white border) */
+    0 -1.5px 2px rgba(140, 190, 255, 0.5),
+    /* Soft rounded 3D clay depth (gentle progressive blur to remove sharp edges) */
+    0 1px 1px #1f49db,
+    0 2px 1.5px #1a42ce,
+    0 3px 2px #163bc0,
+    0 4px 2.5px #1234b0,
+    0 5px 3px #0e2ca0,
+    0 6px 4px #0a248e,
+    0 7px 5px #071c76,
+    /* Soft clay contact shadow */
+    0 9px 12px rgba(5, 21, 92, 0.38),
+    /* Diffuse ambient elevation */
+    0 16px 24px rgba(0, 0, 0, 0.1);
+}
+
+.clay-text-lime {
+  color: #c8ff3d;
+  display: inline-block;
+  transform: translateZ(0);
+  -webkit-text-stroke: 0.8px #c8ff3d;
+  paint-order: stroke fill;
+  text-shadow:
+    /* Top soft cushion highlight (soft pastel-lime, NO white border) */
+    0 -1.5px 2px rgba(235, 255, 140, 0.65),
+    /* Soft rounded 3D clay depth (gentle progressive blur to remove sharp edges) */
+    0 1px 1px #b4ea2b,
+    0 2px 1.5px #a1d71f,
+    0 3px 2px #8ec414,
+    0 4px 2.5px #7bb10a,
+    0 5px 3px #689e02,
+    0 6px 4px #558b00,
+    0 7px 5px #467300,
+    /* Soft clay contact shadow */
+    0 9px 12px rgba(55, 92, 0, 0.38),
+    /* Diffuse ambient elevation */
+    0 16px 24px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 640px) {
+  .clay-text-cobalt {
+    -webkit-text-stroke: 0.5px #2457ff;
+    text-shadow:
+      0 -1px 1.5px rgba(140, 190, 255, 0.45),
+      0 1px 1px #1f49db,
+      0 2px 1.5px #1a42ce,
+      0 3px 2px #163bc0,
+      0 4px 2.5px #0e2ca0,
+      0 6px 8px rgba(5, 21, 92, 0.3),
+      0 12px 18px rgba(0, 0, 0, 0.08);
+  }
+  .clay-text-lime {
+    -webkit-text-stroke: 0.5px #c8ff3d;
+    text-shadow:
+      0 -1px 1.5px rgba(235, 255, 140, 0.55),
+      0 1px 1px #b4ea2b,
+      0 2px 1.5px #a1d71f,
+      0 3px 2px #8ec414,
+      0 4px 2.5px #689e02,
+      0 6px 8px rgba(55, 92, 0, 0.3),
+      0 12px 18px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 180;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -180;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

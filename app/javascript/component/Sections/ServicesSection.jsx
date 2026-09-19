@@ -9,8 +9,8 @@ const SERVICES = [
     title: 'Web Development',
     tagline: 'High-speed websites and custom digital platforms engineered to scale your business.',
     image: '/images/telemetry.svg',
-    accentColor: '#00F0FF',
-    shadowColor: '#00F0FF',
+    accentColor: '#2457ff',
+    shadowColor: '#2457ff',
   },
   {
     id: 'logo',
@@ -18,8 +18,8 @@ const SERVICES = [
     title: 'Logo Design',
     tagline: 'Memorable, iconic brand identities that set you apart and command authority.',
     image: '/images/branding.svg',
-    accentColor: '#FF46A2',
-    shadowColor: '#FF46A2',
+    accentColor: '#c8ff3d',
+    shadowColor: '#c8ff3d',
   },
   {
     id: 'shoot',
@@ -27,8 +27,8 @@ const SERVICES = [
     title: 'Product Shoot',
     tagline: 'Studio commercial photography that elevates your product to a luxury standard.',
     image: '/images/product-shoot.svg',
-    accentColor: '#FBBF24',
-    shadowColor: '#FBBF24',
+    accentColor: '#FF4D36',
+    shadowColor: '#FF4D36',
   },
   {
     id: 'printing',
@@ -36,8 +36,8 @@ const SERVICES = [
     title: 'Printing & Packaging',
     tagline: 'Luxury foil-stamped business cards, bespoke boxes, and tactile brand merchandise.',
     image: '/images/printing.svg',
-    accentColor: '#EE4B2B',
-    shadowColor: '#EE4B2B',
+    accentColor: '#2457ff',
+    shadowColor: '#2457ff',
   },
 ];
 
@@ -86,8 +86,8 @@ export default function ServicesSection() {
           style={{ y: sectionY }} 
           className="text-center max-w-2xl mx-auto space-y-3"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/10 text-xs font-black uppercase tracking-widest text-[#1D1D1F] shadow-[3px_3px_0px_#1D1D1F]">
-            <Sparkles className="w-3.5 h-3.5 text-[#FF46A2]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/10 text-xs font-black uppercase tracking-widest text-[#1D1D1F] shadow-[3px_3px_0px_#2457ff]">
+            <Sparkles className="w-3.5 h-3.5 text-[#2457ff]" />
             <span>Core Capabilities</span>
           </div>
 
@@ -109,7 +109,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="group relative bg-white rounded-3xl sm:rounded-[32px] border-2 border-black overflow-hidden shadow-[5px_5px_0px_#1D1D1F] hover:shadow-[10px_10px_0px_#1D1D1F] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+              className="group relative bg-white rounded-3xl sm:rounded-[32px] border-2 border-black overflow-hidden shadow-[5px_5px_0px_#1D1D1F] hover:shadow-[10px_10px_0px_#2457ff] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
             >
               {/* Card Image Container */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0F172A]">
@@ -137,7 +137,7 @@ export default function ServicesSection() {
               {/* Card Content (Ultra-Minimal) */}
               <div className="p-6 sm:p-8 flex items-center justify-between gap-4">
                 <div className="space-y-1.5 text-left">
-                  <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1D1D1F] group-hover:text-[#0071E3] transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#1D1D1F] group-hover:text-[#2457ff] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6E6E73] font-normal leading-relaxed max-w-md">
@@ -148,10 +148,10 @@ export default function ServicesSection() {
                 {/* Action Link Button */}
                 <a
                   href="#contact"
-                  className="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#1D1D1F] group-hover:bg-[#0071E3] text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-all duration-300 cursor-pointer"
+                  className="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#0B0F19] group-hover:bg-[#2457ff] text-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-all duration-300 cursor-pointer"
                   title={`Inquire about ${item.title}`}
                 >
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:text-[#c8ff3d] transition-all" />
                 </a>
               </div>
 

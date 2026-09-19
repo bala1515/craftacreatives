@@ -14,7 +14,7 @@ export default function App() {
   const [introFinished, setIntroFinished] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F8F8FA] text-[#1D1D1F] relative selection:bg-[#FF46A2] selection:text-white font-sans antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-[#F8F8FA] text-[#1D1D1F] relative selection:bg-[#c8ff3d] selection:text-[#0B0F19] font-sans antialiased overflow-x-hidden">
       
       {/* Custom Physics Magnetic Glow Cursor */}
       <MagneticCursor />
@@ -37,11 +37,11 @@ export default function App() {
         <ContactSection />
       </main>
 
-      {/* Ultra-Clean Pop Art Skeuomorphic Glass Footer */}
+      {/* Ultra-Clean Modern Studio Glass Footer */}
       <footer className="py-12 bg-white/80 backdrop-blur-xl border-t border-black/5 text-center text-xs text-[#6E6E73] relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2.5 font-bold text-[#1D1D1F] tracking-wide text-xs">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FF46A2] shadow-[0_0_10px_#FF46A2]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#c8ff3d] shadow-[0_0_10px_#c8ff3d]" />
             <span className="uppercase font-mono text-[11px] tracking-widest text-[#1D1D1F]">Crafta Creatives Studio © {new Date().getFullYear()}</span>
           </div>
           <div className="text-[#6E6E73] font-mono text-[11px] tracking-wider">

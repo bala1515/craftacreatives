@@ -66,7 +66,7 @@ const indexHtml = `<!DOCTYPE html>
     ${cssFile ? `<link rel="stylesheet" href="/vite/${cssFile}" />` : ''}
     ${jsFile ? `<script type="module" src="/vite/${jsFile}"></script>` : ''}
   </head>
-  <body class="bg-gray-50 text-gray-900 selection:bg-blue-600 selection:text-white">
+  <body class="bg-gray-50 text-gray-900 selection:bg-[#c8ff3d] selection:text-[#0B0F19]">
     <div id="root"></div>
   </body>
 </html>`;
